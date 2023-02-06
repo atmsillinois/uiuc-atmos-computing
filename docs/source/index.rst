@@ -1,22 +1,18 @@
-Welcome to Lumache's documentation!
+UNIVERISTY OF ILLINOIS ATMOSPHERIC SCIENCES COMPUTING DOCUMENTATION
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
-
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+This page contains documentation and examples for working with computing resources in the
+Department of Atmospheric Sciences at the University of Illinois.
 
 .. note::
 
-   This project is under active development.
+   This documentation is under active development.
 
 Contents
 --------
 
 .. toctree::
 
-   usage
-   api
+   Keeling basics <basics> 
+   Utilizing Python on Keeling <python>
+   Commonly installed model codes <codes>
