@@ -8,58 +8,80 @@ PartMC: Particle-resolved Monte Carlo code for atmospheric aerosol simulation
 **Homepage:** <http://lagrange.mechse.illinois.edu/partmc/>
 
 
-To build PartMC on Keeling, first load the required modules::
+Installing PartMC
+-----------------
+
+1. To build PartMC on Keeling, first load the required modules::
 
     module load gnu/gnu-9.3.0
     module load gnu/netcdf4-4.7.4-gnu-9.3.0
     module load gnu/openmpi-3.1.6-gnu-9.3.0
 
-So Keeling finds the right compilers::
+2. Set the following flags so Keeling finds the right compilers::
 
-   export FC=gfortran
-   export CC=gcc
+    export FC=gfortran
+    export CC=gcc
 
-Get the PartMC code from github::
+   or for MPI enabled code::
+
+    export FC=mpif90
+    export CC=mpicc
+
+3. Get the PartMC code from github::
 
     git clone https://github.com/compdyn/partmc.git
 
-Make the build directory::
+4. Make the build directory::
 
     mkdir build
 
-Change into the build directory::
+5. Change into the build directory::
 
     cd build
 
-To set the NetCDF path::
+6. To set the NetCDF path variable ``NETCDF_HOME``::
 
-    nc-config --prefix
+    export NETCDF_HOME=`nc-config --prefix`
 
-And set ``NETCDF_HOME`` to that value with the following::
-
-    export NETCDF_HOME=/sw/netcdf4-4.7.4-gnu-9.3.0
-
-If you compiled MOSAIC, set the ``MOSAIC_HOME`` as::
+7. If you compiled MOSAIC, set the ``MOSAIC_HOME`` as::
 
     export MOSAIC_HOME=<where ever you installed it>
 
-If you compiled CAMP, set the ``CAMP_HOME`` as::
+   If you compiled CAMP, set the ``CAMP_HOME`` as::
 
     export CAMP_HOME=<where ever you installed it>    
 
-ccmake is used to configure the code::
+   If you compile SUNDIALS, set the ``SUNDIALS_HOME`` as::
+
+    export SUNDIALS_HOME=<where ever you installed it>
+
+8. PartMC can be easily configured using the graphical interface supplied by ccmake::
 
     ccmake3 ..
 
-When in the menu, Press ``[c]`` to configure.
+   When in the GUI menu, press ``[c]`` to configure.
 
-Turn on MOSAIC (or other options) as desired.
+   At this point, turn on MOSAIC (or other options) as desired.
 
-When done configuring, Press ``[c]`` to configure again.
+   When done configuring, press ``[c]`` to configure again.
 
-Press ``[g]`` to generate.
+   Finally, press ``[g]`` to generate.
 
-Then::
+9. To build PartMC::
 
     make
+
+   Upon completion of the build process, PartMC test suite may be executed by::
+
     make test
+
+Installing chemistry via Chemistry Across Multiple Phases (CAMP)
+----------------------------------------------------------------
+
+CAMP is available `here <https://github.com/open-atmos/camp>`_
+
+Installing SUNDIALS for cloud parcel
+------------------------------------
+
+SUNDIALS (SUNDIALS is a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers)
+is available for download `here <https://computing.llnl.gov/projects/sundials/sundials-software>`_.
