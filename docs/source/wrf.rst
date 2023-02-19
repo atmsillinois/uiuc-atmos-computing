@@ -1,4 +1,4 @@
-Weather Research and Forecast model
+Weather Research and Forecast (WRF) model
 ===================================
 
 This document is intended to serve as a reference for new users in building and running the WRF and WPS on Keeling. This assumes Versions 3.9.1 and greater.
@@ -21,8 +21,8 @@ and you can unpack by::
 
     tar -xvzf v4.4.2.tar.gz 
 
-Building WRF with GNU
----------------------
+Building WRF with GNU compilers
+-------------------------------
 
 Configuring environment
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -63,8 +63,8 @@ To compile the real model and send the output to a log file::
 
 And to compile other idealized versions::
 
-Building WPS
-------------
+Building WRF Pre-Processing System (WPS)
+----------------------------------------
 
 WPS is available `here <https://github.com/wrf-model/WPS>`_.
 
@@ -77,8 +77,6 @@ Select option YY.
 Then to compile::
 
     ./compile >& compile_WPS.log
-
-
 
 Running WPS
 -----------
