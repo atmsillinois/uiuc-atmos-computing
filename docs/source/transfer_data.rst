@@ -14,7 +14,7 @@ remote machine.
 +---------+--------------------------------------------------------------------+
 |rsync    | For ensuring two directories are synced when little has changed    |
 +---------+--------------------------------------------------------------------+ 
-|Globus   | For for really large files                                         |
+|Globus   | For really large files                                             |
 +---------+--------------------------------------------------------------------+
 
 

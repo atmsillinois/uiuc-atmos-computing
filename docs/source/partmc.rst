@@ -11,53 +11,75 @@ PartMC: Particle-resolved Monte Carlo code for atmospheric aerosol simulation
 Installing PartMC
 -----------------
 
-1. To build PartMC on Keeling, first load the required modules::
+1. To build PartMC on Keeling, first load the required modules:
 
-    module load gnu/gnu-9.3.0
-    module load gnu/netcdf4-4.7.4-gnu-9.3.0
-    module load gnu/openmpi-3.1.6-gnu-9.3.0
+   .. code-block:: console
 
-2. Set the following flags so Keeling finds the right compilers::
+       module load gnu/gnu-9.3.0
+       module load gnu/netcdf4-4.7.4-gnu-9.3.0
+       module load gnu/openmpi-3.1.6-gnu-9.3.0
 
-    export FC=gfortran
-    export CC=gcc
+2. Set the following flags so Keeling finds the right compilers:
 
-   or for MPI enabled code::
+   .. code-block:: console
 
-    export FC=mpif90
-    export CC=mpicc
+       export FC=gfortran
+       export CC=gcc
 
-3. Get the PartMC code from github::
+   or for MPI enabled code:
 
-    git clone https://github.com/compdyn/partmc.git
+   .. code-block:: console
 
-4. Make the build directory::
+       export FC=mpif90
+       export CC=mpicc
 
-    mkdir build
+3. Get the PartMC code from github:
 
-5. Change into the build directory::
+   .. code-block:: console
 
-    cd build
+       git clone https://github.com/compdyn/partmc.git
 
-6. To set the NetCDF path variable ``NETCDF_HOME``::
+4. Make the build directory:
 
-    export NETCDF_HOME=`nc-config --prefix`
+   .. code-block:: console
 
-7. If you compiled MOSAIC, set the ``MOSAIC_HOME`` as::
+       mkdir build
 
-    export MOSAIC_HOME=<where ever you installed it>
+5. Change into the build directory:
 
-   If you compiled CAMP, set the ``CAMP_HOME`` as::
+   .. code-block:: console
 
-    export CAMP_HOME=<where ever you installed it>    
+       cd build
 
-   If you compile SUNDIALS, set the ``SUNDIALS_HOME`` as::
+6. To set the NetCDF path variable ``NETCDF_HOME``:
 
-    export SUNDIALS_HOME=<where ever you installed it>
+   .. code-block:: console
 
-8. PartMC can be easily configured using the graphical interface supplied by ccmake::
+       export NETCDF_HOME=`nc-config --prefix`
 
-    ccmake3 ..
+7. If you compiled MOSAIC, set the ``MOSAIC_HOME`` as:
+
+   .. code-block:: console
+
+       export MOSAIC_HOME=<where ever you installed it>
+
+   If you compiled CAMP, set the ``CAMP_HOME`` as:
+
+   .. code-block:: console
+
+       export CAMP_HOME=<where ever you installed it>    
+
+   If you compile SUNDIALS, set the ``SUNDIALS_HOME`` as:
+
+   .. code-block:: console
+
+       export SUNDIALS_HOME=<where ever you installed it>
+
+8. PartMC can be easily configured using the graphical interface supplied by ccmake:
+
+   .. code-block:: console
+
+       ccmake3 ..
 
    When in the GUI menu, press ``[c]`` to configure.
 
@@ -67,13 +89,17 @@ Installing PartMC
 
    Finally, press ``[g]`` to generate.
 
-9. To build PartMC::
+9. To build PartMC:
 
-    make
+   .. code-block:: console
 
-   Upon completion of the build process, PartMC test suite may be executed by::
+       make
 
-    make test
+   Upon completion of the build process, PartMC test suite may be executed by:
+
+   .. code-block:: console
+
+       make test
 
 Installing chemistry via Chemistry Across Multiple Phases (CAMP)
 ----------------------------------------------------------------
