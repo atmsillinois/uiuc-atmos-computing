@@ -6,14 +6,18 @@ When connecting off campus, the VPN must be used. Information on the CISCO
 AnyConnect Virtual Private Network (VPN) is available
 `here <https://techservices.illinois.edu/vpn-essentials/>`_.
 
-The hostname for keeling is::
+The hostname for Keeling is:
+
+.. code-block:: console
 
     keeling.earth.illinois.edu
 
 Connecting via ssh on MacOS of Linux with terminal
 --------------------------------------------------
 
-Using the terminal, you can connect to keeling by::
+Using the terminal, you can connect to Keeling by:
+
+.. code-block:: console
 
     ssh -Y netID@keeling.earth.illinois.edu
 

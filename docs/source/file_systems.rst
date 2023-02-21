@@ -9,7 +9,9 @@ Your personal space on this file system is relatively small with a current quota
 of 100 GB. By keeping the per-user quota low, this file system is able to be
 backed up nightly to ensure its safety in the case of disk failure.
 
-You may check your file system usage against your quota with the command::
+You may check your file system usage against your quota with the command:
+
+.. code-block:: console
 
     quota -s
 
@@ -23,13 +25,17 @@ Group file systems
 ------------------
 
 Most Keeling users have access to storage purchased by research groups or projects.
-These file systems are available on Keeling through directories::
+These file systems are available on Keeling through directories:
+
+.. code-block:: console
 
     /data/<group PI>/filesystem
 
 These file systems should also be available as symbolic links in your `$HOME` directory.
 
-To get a listing of file systems available to you and their current amount of disk space available::
+To get a listing of file systems available to you and their current amount of disk space available:
+
+.. code-block:: console
 
     df /data/<group PI>/*
 

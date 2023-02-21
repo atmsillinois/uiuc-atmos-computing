@@ -11,7 +11,9 @@ interactively or using the batch system which uses SLURM. https://slurm.schedmd.
 Interactive computing
 ---------------------
 
-To request an interactive job, the ``qlogin`` command is used. An example of a request::
+To request an interactive job, the ``qlogin`` command is used. An example of a request:
+
+.. code-block:: console
 
     qlogin -n 20 --mem-per-cpu=4096 --time=12:00:00 --job-name=interactive
 
@@ -173,12 +175,16 @@ Access compute nodes directly using SSH
 
 This is not allowed except for monitoring already running jobs. However if you
 need to monitor a job, you may access the specific compute node by first
-identifying the node your job is running on by::
+identifying the node your job is running on by:
+
+.. code-block:: console
 
     squeue -u $USER
 
 which will list information regarding the your running and queued jobs with ``NODELIST``
 denoting the nodes of your running jobs.
-You may then ``ssh`` directly into that node by the following::
+You may then ``ssh`` directly into that node by the following:
+
+.. code-block:: console 
 
     ssh keeling-<node letter and number>

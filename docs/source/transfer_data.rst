@@ -25,18 +25,24 @@ Secure File Transfer Protocol (SFTP) is a network protocol for securely accessin
 transferring and managing large files and sensitive data. It is best used for
 interactively moving files between systems.
 
-You can interactively connect to Keeling by::
+You can interactively connect to Keeling by:
+
+.. code-block:: console
 
     sftp <netID>@keeling.earth.illinois.edu
 
-To put a file from your laptop named ``local_file`` on Keeling::
+To put a file from your laptop named ``local_file`` on Keeling:
+
+.. code-block:: console
 
     put local_file file_from_laptop
 
 which will rename this file ``file_from_laptop``. If you do not wish to rename the file,
 the last argument can be omitted.
 
-To get a file from Keeling named ``model_output.nc``::
+To get a file from Keeling named ``model_output.nc``:
+
+.. code-block:: console
 
     get model_output.nc
 
@@ -46,30 +52,42 @@ scp
 SCP (secure copy protocol) is a network file transfer protocol that enables easy
 and secure file transfers between a remote system and a local host (or two remote locations).
 
-To copy local file to Keeling::
+To copy local file to Keeling:
+
+.. code-block:: console
 
     scp <options> <local_filename> <HPC_username>@<HPC_hostname>:<HPC_filename>
 
-As an example to copy a single file called ``local_file`` to Keeling to your home directory::
+As an example to copy a single file called ``local_file`` to Keeling to your home directory:
+
+.. code-block:: console
 
     scp local_file <netID>@keeling.earth.illinois.edu:
 
-As an example to copy a whole directory for a specific location on Keeling::
+As an example to copy a whole directory for a specific location on Keeling:
+
+.. code-block:: console
 
     scp -r local_dir <netID>@keeling.earth.illinois.edu:data/
 
 copies the local directory ``local_dir`` to be found in the directory ``$HOME/data`` on Keeling. 
 
-The general form to copy a file from a remote machine to your local system::
+The general form to copy a file from a remote machine to your local system:
+
+.. code-block:: console
  
     scp <options> <HPC_username>@<HPC_hostname>:<HPC_filename> <local_filename>
 
 To copy a single file `model_output/output.nc` from Keeling to your local system 
-to your current directory for example::
+to your current directory for example:
+
+.. code-block:: console
 
     scp <netID>@keeling.earth.illinois.edu:model_output/output.nc . 
 
-To copy the entire ``model_output`` directory from Keeling to your local system::
+To copy the entire ``model_output`` directory from Keeling to your local system:
+
+.. code-block:: console
 
     scp -r netID@keeling.earth.illinois.edu:model_output model_output_from_keeling
 
@@ -88,11 +106,15 @@ that have minor changes. This in in contrast to transferring all files as method
 such as sftp and scp.
 
 
-You can sync a local directory `data` to Keeling by::
+You can sync a local directory `data` to Keeling by:
+
+.. code-block:: console
 
     rsync -a ~/data <netID>@keeling.earth.illinois.edu:destination_directory
 
-You can sync a remote directory at `/home/username/data` to your local machine by::
+You can sync a remote directory at `/home/username/data` to your local machine by:
+
+.. code-block:: console
 
     rsync -a <netID>@keeling.earth.illinois.edu:/home/username/data place_to_sync_on_local_machine
 

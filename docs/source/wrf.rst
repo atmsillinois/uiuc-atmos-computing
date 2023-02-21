@@ -7,17 +7,23 @@ WRF Versions 4.0 and greater are available on GitHub `here <https://github.com/w
 
 Older versions are available for download from `here <https://www2.mmm.ucar.edu/wrf/users/download/get_source.html>`_
 
-It is recommended that you fork the WRF repository through GitHub and then acquire the code by::
+It is recommended that you fork the WRF repository through GitHub and then acquire the code by:
+
+.. code-block:: console
 
     git clone git@github.com:<your github username>/WRF.git
 
 or acquire a specific version from the Release page for wrf-model on GitHub
 `here <https://github.com/wrf-model/WRF/releases>`_. For example, to acquire a
-tar file of version 4.4.2::
+tar file of version 4.4.2:
+
+.. code-block:: console
 
     wget https://github.com/wrf-model/WRF/releases/download/v4.4.2/v4.4.2.tar.gz
 
-and you can unpack by::
+and you can unpack by:
+
+.. code-block:: console
 
     tar -xvzf v4.4.2.tar.gz 
 
@@ -27,25 +33,33 @@ Building WRF with GNU compilers
 Configuring environment
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-Load the following modules::
+Load the following modules:
+
+.. code-block:: console
 
     module load gnu/gnu-9.3.0
     module load gnu/netcdf4-4.7.4-gnu-9.3.0
     module load gnu/openmpi-3.1.6-gnu-9.3.0
 
-Set the path to NetCDF::
+Set the path to NetCDF:
+
+.. code-block:: console
 
     export NETCDF=`nc-config --prefix`
 
 If you are interested in compiling WRF with chemistry options, WRF-Chem can be
-enabled on by::
+enabled on by:
+
+.. code-block:: console
 
     export WRF_CHEM=1
 
 Configuring and compiling WRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure WRF::
+To configure WRF:
+
+.. code-block:: console
   
     ./configure
 
@@ -57,24 +71,32 @@ Upon completion of the configure process a file `configure.wrf` will be generate
 that contains all the settings for building WRF. This is the file that one
 may be required to modify in event of a problem or to modify compiler options.
 
-To compile the real model and send the output to a log file::
+To compile the real model and send the output to a log file:
+
+.. code-block:: console
 
     ./compile em_real >& compile_WRF_GNU.log
 
-And to compile other idealized versions::
+And to compile other idealized versions:
+
+.. code-block:: console
 
 Building WRF Pre-Processing System (WPS)
 ----------------------------------------
 
 WPS is available `here <https://github.com/wrf-model/WPS>`_.
 
-To configure::
+To configure:
+
+.. code-block:: console
 
     ./configure
 
 Select option YY.
 
-Then to compile::
+Then to compile:
+
+.. code-block:: console
 
     ./compile >& compile_WPS.log
 
