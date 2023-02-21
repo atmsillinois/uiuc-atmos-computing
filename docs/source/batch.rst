@@ -36,7 +36,9 @@ It can also be used to launch interactive or non-interactive batch jobs using th
 
 Example scripts
 
-A simple script requesting a single node consisting of 12 cores for 24 hours::
+A simple script requesting a single node consisting of 12 cores for 24 hours:
+
+.. code-block:: slurm
 
     #!/bin/bash
 
@@ -49,7 +51,9 @@ A simple script requesting a single node consisting of 12 cores for 24 hours::
     #SBATCH --mail-user=jcurtis2@illinois.edu
 
 A simple script requesting many nodes consisting of 100 cores for 12 hours 
-without caring about node configuration::
+without caring about node configuration:
+
+.. code-block:: slurm
 
     #!/bin/bash
 
@@ -62,7 +66,9 @@ without caring about node configuration::
     #SBATCH --mail-user=jcurtis2@illinois.edu
 
 A simple script for requesting a handful of cores but a large amount of memory per
-core (16 GB) for 6 hours::
+core (16 GB) for 6 hours:
+
+.. code-block:: slurm
 
     #!/bin/bash
 
@@ -73,15 +79,17 @@ core (16 GB) for 6 hours::
     #SBATCH --mem-per-cpu=16g
 
 A more advanced job script requesting 100 cores, 4 GB of memory per core, 12 hours of
-wall clock time and wanting a node configuration of 2 sockets with 10 cores each::
+wall clock time and wanting a node configuration of 2 sockets with 10 cores each:
+
+.. code-block:: slurm
 
     #!/bin/bash
 
     #SBATCH --job-name=PARTMC3D
     #SBATCH -p sesempi
     #SBATCH -n 100 
-    ##SBATCH --sockets-per-node=2
-    ##SBATCH --cores-per-socket=10
+    #SBATCH --sockets-per-node=2
+    #SBATCH --cores-per-socket=10
     #SBATCH --time=12:00:00
     #SBATCH --mem-per-cpu=4096
     #SBATCH --mail-type=FAIL
