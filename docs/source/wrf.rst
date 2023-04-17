@@ -77,9 +77,19 @@ To compile the real model and send the output to a log file:
 
     ./compile em_real >& compile_WRF_GNU.log
 
-And to compile other idealized versions:
+WRF also has various idealized cases. These cases are found in the `test` directory and
+all available cases can be seen by
 
 .. code-block:: console
+
+    ./compile -h
+
+with further information regarding each case found in the README files within each case.
+As an example, if you wanted to compile the LES scenario found in `test/em_les`
+
+.. code-block:: console
+
+    ./compile em_les >& compile_WRF_les_GNU.log
 
 Building WRF Pre-Processing System (WPS)
 ----------------------------------------
