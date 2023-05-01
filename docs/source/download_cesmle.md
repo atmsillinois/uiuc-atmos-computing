@@ -2,17 +2,17 @@
 
 (Work in progress!)
 
-This tutorial will go through the different steps of downloading CESM data on to Keeling from the NCAR website. This tutorial is fairly similar to the one used to [download CMIP5 and CMIP6 data](./downloading_CMIP5_and_CMIP6_Models_.nc_Files_from_ESGF.md), although a little simpler.
+This tutorial will go through the different steps of downloading CESM data on to Keeling from the NCAR website. This tutorial is fairly similar to the one used to [download CMIP5 and CMIP6 data](./download_cmip.md), although a little simpler.
 
 Publicly available datasets like the CESM large ensemble and the CESM1 last millenium ensemble can be accessed [here](https://www.earthsystemgrid.org/), which is where our tutorial will start.
 
-![The NCAR ESG Website Homepage](../images/ncaresg_homescreen.png)
+![The NCAR ESG Website Homepage](./images/ncaresg_homescreen.png)
 
 ## Step 0: Create an NCAR Account (You can skip if you already have one)
 
 Click on the Sign in button on the top right of the home screen. You'll be asked if you want to sign in with ORCid, UCAR CIT, or create an NCAR account. 
 
-![Signing in](../images/signin.png)
+![Signing in](./images/signin.png)
 
 I've had issues with using ORCid to access earthsystemgrid.org in the past, so it would be suggested to use an NCAR account, since it's fairly simple to set up. 
 
@@ -24,7 +24,7 @@ There's several different ways to access the different datasets on earthsystemgr
 
 ### Method 1a: Searching from the homepage
 
-![Homepage](../images/homepage_search.png)
+![Homepage](./images/homepage_search.png)
 
 The search tab doesn't contain many key datasets, so you may want to start your search at the homepage.
 
@@ -37,28 +37,28 @@ Some data may require further authorization or special permissions in order to a
 #### Addendum: CESM Large Ensemble Data Variables
 When listed on the website under the child datasets for CESM-LE, the variables are often undescribed and left in their shortened form, creating some confusion.
 
-![CESM-LE Variables](../images/cesmlevariables.png)
+![CESM-LE Variables](./images/cesmlevariables.png)
 
 In order to figure out what each variable is, go to the [Datasets Available to the Community](https://www.cesm.ucar.edu/community-projects/lens/data-sets) page on NCAR's website. You can search for the variable you would like at the bottom of the page.
 
-![CESM-LE Variable search](../images/ncarvariablesearch.png)
+![CESM-LE Variable search](./images/ncarvariablesearch.png)
 
 By looking for precipitation, for example, you can find if there's data for the specific time frequency you need, what the stream name is, what the shortened variable name is, the units, and other information that can help you with your search.
 
 After searching back on the earthsystemgrid website for the specific dataset you need, you can go ahead and click on Download Options to continue.
 
-![After clicking on the link for PRECL data](../images/precipitationdata.png)
+![After clicking on the link for PRECL data](./images/precipitationdata.png)
 
 ### Method 1b: Searching through the Projects tab
 
-![The Projects Tab](../images/projects_screen.png)
+![The Projects Tab](./images/projects_screen.png)
 
 Clicking on the Projects tab will take you to a directory of different models and projects, like CMIP5 and CCSM. Each of these links will take you to the search tab with the selected 
 project or model highlighted. This may help simplify your search.
 
 ### Method 1c: Using the Search tab
 
-![The search tab](../images/searchtab_screen.png)
+![The search tab](./images/searchtab_screen.png)
 
 You can also use the filters on the left in order to find the specific model data you need.
 This separates the data by:
@@ -113,11 +113,11 @@ Each part of the label is separated by periods.
 - File type
   - Typically nc (netCDF file)
   
-# Step 2: Download Data
+## Step 2: Download Data
 
 After successfully selecting the data you'd like to download, click either "Download Selected" or "Download Options for Selection". This should take you to a page that looks like the below:
 
-![Download Options](../images/downloadoptions.png)
+![Download Options](./images/downloadoptions.png)
 
 Click "Download Wget Script", which should bring up a popup to save a wget script.
 
@@ -150,4 +150,4 @@ Can't verify checksum.
    ok. done!
 ```
 
-![Downloaded data](../images/downloadeddata.png)
+![Downloaded data](./images/downloadeddata.png)

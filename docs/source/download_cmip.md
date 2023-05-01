@@ -4,7 +4,7 @@ This tutorial is applicable to downloading both CMIP5 and CMIP6 model output, an
 
 This is aimed to serve as a quick guide to download global model output. For any other questions, please see the [detailed ESGF guide](https://esgf.github.io/esgf-user-support/user_guide.html?highlight=open%20id), or reach out to fellow folks working with CMIP output (at UIUC or the developers at LLNL). Please take any suggestions provided in this guide as a grain of salt. 
 
-![main_1](../images/main_1.png)
+![main_1](./images/main_1.png)
 
 --------
 
@@ -17,7 +17,7 @@ It is required to have an account at ESGF to start downloading files. To access 
 
 Create a new profile if you don't already have one by filling out all boxes that are bolded. 
 
-![CreateProfile](../images/CreateProfile.png)
+![CreateProfile](./images/CreateProfile.png)
 
 >**Important:** Remember to record Open ID, as it will be used for ESGF account future log-ins and authentication when downloading the data. 
 
@@ -27,13 +27,13 @@ Create a new profile if you don't already have one by filling out all boxes that
 
 ## Step 1: Login to ESGF Node
 To log in, click 'Login' on the upper right corner, and you should reach a page that requests your Open ID. 
-![LoginOpenID](../images/LoginOpenID.png)
+![LoginOpenID](./images/LoginOpenID.png)
 
 Once you input your openID, you will get redirected to this page that asks for your username and password (either one of the following). The username is embedded as part of your OpenID (`helloworld` from the above example).
 
-![PostOpenIDLogin_1](../images/postopenidlogin_1.png)
+![PostOpenIDLogin_1](./images/postopenidlogin_1.png)
 
-![PostOpenIDLogin_2](../images/postopenidlogin_2.png)
+![PostOpenIDLogin_2](./images/postopenidlogin_2.png)
 
 You will get redirected to the homepage of ESGF once you successfully logged in. 
 
@@ -42,7 +42,7 @@ You will get redirected to the homepage of ESGF once you successfully logged in.
 ## Step 2: Use the filters on the left panel to get all your files
 
 >If you are at the homepage of the ESGF node, click `'More search options'` to get to the page where the magic happens. 
-![magicalpage_noncmip6wcrp](../images/magicalpage_noncmip6wcrp.png)
+![magicalpage_noncmip6wcrp](./images/magicalpage_noncmip6wcrp.png)
 
 
 It is hard to pinpoint the specific filenames of the specific models/experiments/realizations. Thus, we will narrow down our search through selecting the conditions that we want.
@@ -69,10 +69,10 @@ If you are downloading a single `.nc` file, see Step 3.
 
 Once you found the dataset that you want from the results, click '`add to data cart`' if you are downloading multiple files. 
 
-<br/><br/>
+
+--------
 
 ## FAQ and Tips when narrowing down files to download: 
-<br/>
 
 1. **There are similar modelnames with different suffix. How to select which models to download?**
     
@@ -112,7 +112,7 @@ Once you found the dataset that you want from the results, click '`add to data c
      
      1. Click `show all replicas` under the search bar.
 
-        ![showallreplicas](../images/showallreplicas.png)
+        ![showallreplicas](./images/showallreplicas.png)
         
         It is possible that the LLNL ESGF node doesn't have the file that you are looking for. By clicking show all replicas, file of the same name from other data nodes like the one in UK (`esgf.ceda.ac.uk`),or AU (`esgf.nci.org.au`) will show. 
         
@@ -167,30 +167,28 @@ Once you found the dataset that you want from the results, click '`add to data c
 
        This is helpful when deciding your download method - whether you want to download a single `.nc` file, or the full dataset. It may also be useful when checking if you have missed any files or not.  
         
-<br/><br/>
-        
 ----------
 
-# Step 3: Downloading the Datasets/Files 
+## Step 3: Downloading the Datasets/Files 
 
 Once you found the dataset(s) you needed, you can proceed to download the dataset. 
 
-## 0. (CMIP5-WGET Script Method Only) Filter Variables 
+### 0. (CMIP5-WGET Script Method Only) Filter Variables 
 
 > Make sure there is only CMIP5 or CMIP6 datasets in your Data Cart. Although CMIP5 and CMIP6 have different search interface, they share the same Data Cart.
 
 - Since CMIP5 datasets have all variables bundled together, downloading the entire datasets takes up a lot of memory. Out of the multiple variables, you may only need to use a few. 
 
-    ![datacart_cmip5](../images/datacart_cmip5.png)
+    ![datacart_cmip5](./images/datacart_cmip5.png)
 
     Now that there is only CMIP5 datasets in your data cart, you can select the variables to download by typing the variable names in the box on the upper right and click apply as shown in the red box. 
 
-    ![datacart_cmip5_withsearchapplied](../images/datacart_cmip5_withsearchapplied.png)
+    ![datacart_cmip5_withsearchapplied](./images/datacart_cmip5_withsearchapplied.png)
 
 
     In this example, `ts`,`hur`, `uas` and `vas` are selected to download. To check whether the filter is applied, click `Show Files` to see if the number of files under the dataset has changed: Only 4 files under the `MPI-ESM-LR` dataset and 7 files from `MRI-CGCM3` will be downloaded, instead of the total 53 and 83 files.
 
-## 1. Downloading Batch of Datasets
+### 1. Downloading Batch of Datasets
 
 - **Method 1a: WGET Script Download**
 
@@ -200,11 +198,11 @@ Once you found the dataset(s) you needed, you can proceed to download the datase
 
     Click `Select All Datasets`, then click `WGET Script` under `Collective Services for All Selected Datasets`. You will see links to download the WGET script. The number of script links depends on the amount of nodes the datasets are downloaded from. In this example, not all datasets are available in the LLNL-ESGF node, and replicas from the AU and UK nodes are selected. Therefore, datasets will be acquired from all LLNL-ESGF, AU-ESGF and UK-ESGF nodes, so we'll need to download total of three scripts. 
     
-    ![wgetscripts](../images/wgetscripts.png)
+    ![wgetscripts](./images/wgetscripts.png)
 
     When you click the link, you may see the information not secure page. Click `Send anyways`. 
 
-    ![notsecure](../images/notsecure.png)
+    ![notsecure](./images/notsecure.png)
 
     The bash script will be downloaded to your local computer. Use `scp` to copy/transfer the script to your targetted file destination on Keeling. Run the script as follow, where `wget-20221226003827.sh` is the script name.
 
@@ -214,40 +212,40 @@ Once you found the dataset(s) you needed, you can proceed to download the datase
 
     You will get prompted for the OpenID and the Passphrase as seen in the red box. Paste the entire OpenID to the prompt, and type the same password when logging into the WCRP CMIP5/6 search interface. The download will start instantly. The prompt will return `Connected` as underlined in blue to indicate a successful download. 
 
-    ![OpenIDpassphraseprompt](../images/openIDpassphraseprompt.png)
+    ![OpenIDpassphraseprompt](./images/openIDpassphraseprompt.png)
 
 - **Method 1b: Globus Download to Keeling** 
     
     *Not all files has the Globus Download Option. 
 
-    ![globusdownload](../images/globusdownload.png)
+    ![globusdownload](./images/globusdownload.png)
 
     Under the `Full Dataset Service`, select `Globus Download`. You will get redirected to a page that lists all the Globus paths of the files. 
 
-    ![globusdownload_options](../images/globusdownload_options.png)
+    ![globusdownload_options](./images/globusdownload_options.png)
 
     There are two options to download the files with the Globus method. 
     
     **I. Website Method**
     Once you click `Start Web Download`, you will get redirected to the Globus file manager. Login with your .illinois account credentials.
 
-    ![globusfilemanager_login](../images/globusfilemanager_login.png)
+    ![globusfilemanager_login](./images/globusfilemanager_login.png)
 
     Once you reach the Globus file manager dashboard, click the `Search` box in Collection, and then select `sese#keeling-dtn`. 
 
-    ![globus_keeling](../images/globus_keeling.png)
+    ![globus_keeling](./images/globus_keeling.png)
 
     You will then see your Keeling account. Select the file destination on Keeling, then click `Submit`.  
 
-    ![globus_keeling_destination](../images/globus_keeling_destination.png)
+    ![globus_keeling_destination](./images/globus_keeling_destination.png)
 
     If you are on Google Chrome, you may see this page displayed. Simply click `Send Anyways`. 
 
-    ![notsecure](../images/notsecure.png)
+    ![notsecure](./images/notsecure.png)
 
     You will get redirected to the WCRP ESGF page once the transfer is done with the following confirmation message shown. You may also receive an email from Globus confirming the download task. 
 
-    ![globusconfirmation](../images/globusconfirmation.png)
+    ![globusconfirmation](./images/globusconfirmation.png)
 
     You should be able to see the files in your destination folder on Keeling. 
 
@@ -255,7 +253,7 @@ Once you found the dataset(s) you needed, you can proceed to download the datase
     
     Click `Start Script Download` in Option 2. The `.py` will then download to your local computer. Similar to `WGET Script`, upload the python script to Keeling and run it as a regular python script. Then use `mv` to move the files to the destined folder. 
 
-## 2. Downloading a Single Variable `.nc` File
+### 2. Downloading a Single Variable `.nc` File
 > If you are trying to download a single variable, but the number of files != 1, it is highly recommended to use the methods mentioned in `1. Downloading multiple datasets`. 
 
 
@@ -263,7 +261,7 @@ Once you found the dataset(s) you needed, you can proceed to download the datase
     
     In the Dataset listing, select `List Files` from `Full Dataset Services`. This should expand the full list of `.nc` files under the dataset. On the right hand side of the file listing, there are multiple links under `Single File Access`.  
 
-    ![httpdownload](../images/httpdownload.png)
+    ![httpdownload](./images/httpdownload.png)
 
     Click HTTP Download, and the file should be downloaded to your local computer. Use `scp` to upload the file to Keeling from your local terminal.
     

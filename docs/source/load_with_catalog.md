@@ -2,18 +2,20 @@
 
 This tutorial is specifically for users who will use the File Catalog for either CMIP6 or CESM output. 
 
-You should be able to access the catalogs nested in `/data/keeling/a/cristi` directory, but the full path are as follow: 
+You should be able to access the catalogs nested in `/data/keeling/a/cristi` directory. Currently available catalogs are as follow:  
 
-- CESM2-catalog: `/data/keeling/a/cristi/a/esm_data/cesm`
+- CESM-LME-catalog: `/data/keeling/a/cristi/a/esm_data/cesm_catalog.csv`
 
-- CMIP6-catalog: `/data/keeling/a/cristi/a/esm_data/cmip6`
+- CESM-LE-catalog: `data/keeling/a/cristi/a/data/LENS_catalog.csv`
+
+- CMIP6-catalog: `/data/keeling/a/cristi/a/esm_data/cmip6_catalog.csv`
 
 **Prerequsites for the use of the catalog:** 
 - Basic knowledge of Pandas and Xarray* 
 - Knowledge about CMIP6 output and what the search keys are referring to**
 
 <font size = 1.7> *Highly recommend using Xarray to deal with large datasets like global climate model output; but other packages would also work.  
-** Check out [Step 2 in the Downloading CMIP5 and CMIP6 Models. nc Files page](downloading_CMIP5_and_CMIP6_Models_.nc_Files_from_ESGF.md) for more details. 
+** Check out [Step 2 in the Downloading CMIP5 and CMIP6 Models. nc Files page](download_cmip.md) for more details. 
 
 <font size=2> 
 
@@ -24,7 +26,7 @@ Your goal will be to load either CESM or CMIP6 files available on Cristi's `/a/`
 2. Get their filepaths, and 
 3. Read the files 
 
-Link to the sample Jupyter Notebook: [Loading from Catalog](../tutorials/loading_from_catalog.ipynb)
+Link to the sample Jupyter Notebook: [Loading from Catalog](./tutorials/loading_from_catalog.ipynb)
 
 ## Step 0: Start a Jupyter Notebook and import required packages 
 This will be the notebook that you work with the model data. You will be needing `pandas` to **read and search within the catalog**, and `xarray` to view content of the `.nc` files. 
@@ -69,7 +71,7 @@ This step is self-explanatory: `open_mfdataset` is called to read the files.
 ### **Note: Error will rise when have Multiple Models in `path`**
 It will be awesome if we can simply include all models' filepaths and read as a single dataset. However, life is hard: Models have different time coordinates, such as `cftime.Datetime360Day()` from `cftime` and `datetime64` from `NumPy`. You will run into the following error if you try to load multiple model output for a single variable altogether. 
 
-![diff_timecoords_error](../images/diff_timecoords_error.png)
+![diff_timecoords_error](./images/diff_timecoords_error.png)
 
 It is unclear whether there is a certain preferred time coordinates. So the simplest practice is to **read output files for a single model and variable one at a time**. You can change the time coordinates for each model, and then merge them together as a single dataset. 
 
