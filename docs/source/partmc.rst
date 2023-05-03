@@ -82,11 +82,8 @@ Installing PartMC
        ccmake3 ..
 
    When in the GUI menu, press ``[c]`` to configure.
-
    At this point, turn on MOSAIC (or other options) as desired.
-
    When done configuring, press ``[c]`` to configure again.
-
    Finally, press ``[g]`` to generate.
 
 #. To build PartMC:
@@ -137,7 +134,6 @@ Building SuiteSparse
    .. code-block:: console
  
       export CXX=g++
-
       export SUITE_SPARSE_HOME=<where you like to install it>
 
 #. Build and install the library:
