@@ -1,11 +1,11 @@
 Weather Research and Forecast (WRF) model
-===================================
+=========================================
 
 This document is intended to serve as a reference for new users in building and running the WRF and WPS on Keeling. This assumes Versions 3.9.1 and greater.
 
-WRF Versions 4.0 and greater are available on GitHub `here <https://github.com/wrf-model/WRF>`_
+WRF Versions 4.0 and greater are available on GitHub `here <https://github.com/wrf-model/WRF>`__
 
-Older versions are available for download from `here <https://www2.mmm.ucar.edu/wrf/users/download/get_source.html>`_
+Older versions are available for download from `here <https://www2.mmm.ucar.edu/wrf/users/download/get_source.html>`__
 
 It is recommended that you fork the WRF repository through GitHub and then acquire the code by:
 
@@ -14,7 +14,7 @@ It is recommended that you fork the WRF repository through GitHub and then acqui
     git clone git@github.com:<your github username>/WRF.git
 
 or acquire a specific version from the Release page for wrf-model on GitHub
-`here <https://github.com/wrf-model/WRF/releases>`_. For example, to acquire a
+`here <https://github.com/wrf-model/WRF/releases>`__. For example, to acquire a
 tar file of version 4.4.2:
 
 .. code-block:: console
