@@ -101,7 +101,7 @@ Installing PartMC
 Installing chemistry via Chemistry Across Multiple Phases (CAMP)
 ----------------------------------------------------------------
 
-CAMP is available at `open-atmos/camp <https://github.com/open-atmos/camp>`_.
+CAMP is available at `open-atmos/camp <https://github.com/open-atmos/camp>`__.
 It can be cloned by:
 
 .. code-block:: console
@@ -255,5 +255,5 @@ Installing SUNDIALS for cloud parcel
 ------------------------------------
 
 SUNDIALS (SUNDIALS is a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers)
-is available for download `from LLNL <https://computing.llnl.gov/projects/sundials/sundials-software>`_.
+is available for download `from LLNL <https://computing.llnl.gov/projects/sundials/sundials-software>`__.
 

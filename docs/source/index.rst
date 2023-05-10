@@ -17,3 +17,4 @@ Contents
    Keeling basics <basics> 
    Utilizing Python on Keeling <python>
    Commonly installed model codes <codes>
+   Accessing downloaded model output <catalogs> 
