@@ -104,7 +104,7 @@ Installing PartMC
 Installing chemistry via Chemistry Across Multiple Phases (CAMP)
 ----------------------------------------------------------------
 
-CAMP is available `here <https://github.com/open-atmos/camp>`_
+CAMP is available `here <https://github.com/open-atmos/camp>`__
 
 Installing SUNDIALS for cloud parcel
 ------------------------------------

@@ -123,7 +123,7 @@ And the BSUB lines:
 
 Under the second USERDEFINED section, the MPI exec and run lines should look like this:
 
-.. code-block:: xml
+.. code-block:: console 
 
    #mpiexec -n ${maxtasks} \$EXEROOT/cesm.exe >&! cesm.log.\$LID
    mpirun -np ${maxtasks} \$EXEROOT/cesm.exe >&! cesm.log.\$LID

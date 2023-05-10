@@ -11,7 +11,7 @@ An aquaplanet component set is typically an atmosphere only model where it's ass
 
 Here, we'll be going over how to change the sea surface temperature in order to see how the atmosphere is disturbed.
 
-This tutorial partially follows the :ref:`UCAR example for the CAM5 physics model <https://www.cesm.ucar.edu/models/simple/aquaplanet>`.
+This tutorial partially follows the `UCAR example for the CAM5 physics model <https://www.cesm.ucar.edu/models/simple/aquaplanet>`__.
 
 Creating a new case
 ====================
@@ -135,6 +135,7 @@ If you've set up your output like :doc:`here <out_of_box_cesm>`, you should find
 Try plotting surface temperature:
 
 .. code-block:: python
+
    import xarray as xr
    import matplotlib.pyplot as plt
 
