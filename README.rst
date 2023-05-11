@@ -1,6 +1,10 @@
 ATMS Computing Documentation
 =======================================
 
+.. image:: https://readthedocs.org/projects/computing-docs/badge/?version=latest
+    :target: https://computing-docs.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status   
+
 This GitHub repository contains documentation for computing
 within the Department of Atmospheric Sciences at the University of Illinois.
 
