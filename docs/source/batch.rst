@@ -6,7 +6,7 @@ and not a large number of cores. Programs that require large amounts of memory o
 killed if run on the head node.
 
 To avoid this issue, users must access the compute nodes. This can be done in two ways,
-interactively or using the batch system which uses SLURM. https://slurm.schedmd.com/
+interactively or using the batch system which uses `SLURM <https://slurm.schedmd.com/>`__.
 
 Interactive computing
 ---------------------
@@ -25,7 +25,11 @@ the node to be available to others.
 
 Alternatively you can use ``srun`` to access other partitions to request more resources.
 
+To interactively compute on a GPU node:
 
+.. code-block:: console
+
+    qlogin -p gpu -n 20 --gres=gpu:K40m:1
 
 Batch computing
 ---------------
@@ -106,7 +110,8 @@ Helpful SLURM command line options:
 +-------------+-------------------------------------------------------------------+
 | Command     | Description                                                       |
 +-------------+-------------------------------------------------------------------+
-| sinfo       | View partition and node information for a system                  |
+| sinfo       | View partition and node information for a system.                 |
+|             | Helpful viewing node availability                                 |
 +-------------+-------------------------------------------------------------------+
 | sbatch      | Submit a job script                                               |
 +-------------+-------------------------------------------------------------------+
@@ -117,6 +122,8 @@ Helpful SLURM command line options:
 | sshare      | View listing the shares of associations on the system             |
 +-------------+-------------------------------------------------------------------+
 | sacct       | View accounting data for all jobs                                 |
++-------------+-------------------------------------------------------------------+
+| sview       | Graphical interface of the Slurm state                            |
 +-------------+-------------------------------------------------------------------+
 
 Information regarding each command may be found `here <https://slurm.schedmd.com/sinfo.html>`_
@@ -139,36 +146,36 @@ to depending on your computing needs.
 +-------------+------------------------+--------------------+
 | sesebig     | MinNodes=9 MaxNodes=32 | 2 days             |
 +-------------+------------------------+--------------------+
-| gpu         | Access to GPU          | 7 days             |
+| gpu         | Access to GPU (K40m)   | 7 days             |
 +-------------+------------------------+--------------------+
 
 Keeling consists of the following types of nodes with the following features
 
-+-------------+------------------+-----------+
-| Name        | Cores per node   | Memory    |
-+-------------+------------------+-----------+
-| a           | 4                |           | 
-+-------------+------------------+-----------+
-| b           | 8                |           |
-+-------------+------------------+-----------+
-| c           | 12               |           |
-+-------------+------------------+-----------+
-| d           | 12               |           |
-+-------------+------------------+-----------+
-| e           | 12               | 64300     |
-+-------------+------------------+-----------+
-| f           | 8                |           |
-+-------------+------------------+-----------+
-| g           | 20               |           |
-+-------------+------------------+-----------+
-| gpu         | 20               | 256200    |
-+-------------+------------------+-----------+
-| h           | 20 or 24         | 256200    |
-+-------------+------------------+-----------+
-| i           | 32               | 192000    |
-+-------------+------------------+-----------+
-| j           | 48               | 253000    |
-+-------------+------------------+-----------+
++-------------+------------------+---------------+
+| Name        | Cores per node   | Real memory   |
++-------------+------------------+---------------+
+| a           | 4                | 12000         |
++-------------+------------------+---------------+
+| b           | 8                | 16000 - 32000 |
++-------------+------------------+---------------+
+| c           | 12               | 32160 or 72480|
++-------------+------------------+---------------+
+| d           | 12               | 64300 or 80500|
++-------------+------------------+---------------+
+| e           | 12               | 64300         |
++-------------+------------------+---------------+
+| f           | 8                | 24000         |
++-------------+------------------+---------------+
+| g           | 20               | 128800        |
++-------------+------------------+---------------+
+| gpu         | 20               | 256200        |
++-------------+------------------+---------------+
+| h           | 20 or 24         | 256200        |
++-------------+------------------+---------------+
+| i           | 32               | 192000        |
++-------------+------------------+---------------+
+| j           | 48               | 253000        |
++-------------+------------------+---------------+
 
 Access compute nodes directly using SSH
 ---------------------------------------
