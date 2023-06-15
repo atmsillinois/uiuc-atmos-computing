@@ -20,11 +20,17 @@ NCAR https://arc.ucar.edu/xras_submit/opportunities
 
    - Large
 
+NCSA https://www.ncsa.illinois.edu/about/illinois-computes/
+
+The National Center for Supercomputing Applications supports Illinois researchers through Illinois
+Computes, a program offering computing and data storage resources, technical expertise and support
+services to researchers from domains across campus. They can cover a broad range of computing needs.
+
 Data storage
 ------------
 
 Often publications require public availability of data and code. This requirement can be 
-met with the Illinois data bank. The Illinois Data Bank is a public access repository for
+met with the Illinois Data Bank. The Illinois Data Bank is a public access repository for
 publishing research data from the University of Illinois at Urbana-Champaign.
 
 https://databank.illinois.edu/
