@@ -15,17 +15,15 @@ To run the script::
 
     bash Anaconda-latest-Linux-x86_64.sh
 
-Accep the policy
+Accept the policy
 
-Specify where to install it
+Specify where you want to install it.
 
 And activate it.
 
-You may have to source .bashrc to get it to work initially.
+You may have to ``source .bashrc`` or ``source .modules7`` to get it to work initially.
 
 You will be in the base environment.
-
-
 
 Managing environments
 ---------------------
