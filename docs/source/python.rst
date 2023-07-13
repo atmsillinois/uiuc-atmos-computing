@@ -27,13 +27,13 @@ different environments can be used without breaking the other.
 
    .. code-block:: console
 
-    bash Miniconda3-latest-Linux-x86_64.sh
+    bash Anaconda3-2023.07-0-Linux-x86_64.sh
 
    or
 
    .. code-block:: console
 
-    bash Anaconda3-2023.07-0-Linux-x86_64.sh
+    bash Miniconda3-latest-Linux-x86_64.sh
 
 #. Accept the policy by responding ``yes`` when prompted.
 
