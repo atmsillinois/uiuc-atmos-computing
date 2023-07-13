@@ -1,4 +1,4 @@
-Options for editting files on Keeling
+Options for editing files on Keeling
 =====================================
 
 
@@ -8,11 +8,11 @@ Traditional text editors
 Keeling is equipped with the usual assortment of text editors for editing
 scripts and code.
 
-emacs
+* emacs
 
-nano
+* nano
 
-vim
+* vim
 
 Visual Studio Code
 ------------------
@@ -23,17 +23,15 @@ edit code.
 
 The steps to do this are as follows:
 
-Acquire the code from https://code.visualstudio.com/
+#. Acquire the code from https://code.visualstudio.com/
 
-Install
+#. Install
 
-Open VS Code
+#. Open VS Code
 
-You will need to get the ssh extension Remote-SSH
+#. You will need to get the ssh extension Remote-SSH
 
-After installing the extension, in VS Code, select Remote-SSH: Connect to Host
-for the Command Palette (F1, ⇧⌘P).
+#. After installing the extension, in VS Code, select Remote-SSH: Connect to Host
+   for the Command Palette (F1, ⇧⌘P). Enter the following::
 
-Enter the following::
-
-    ssh netID@keeling.earth.illinois.edu
+     ssh <your netID>@keeling.earth.illinois.edu
