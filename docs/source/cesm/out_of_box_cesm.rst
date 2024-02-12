@@ -56,9 +56,8 @@ though.
 
 Machine compilers
 =================
-Try ``cp /data/keeling/a/mailes2/CESM/cesm1_2_1/scripts/ccsm_utils/Machines/config_compilers.xml .``
-
-Make sure the keeling entry (below the intel entry) looks like below.
+In the file ``CESM/cesm1_2_1/scripts/ccsm_utils/Machines/config_compilers.xml``,
+Paste the code block and check that the keeling entry (below the intel entry) looks like below.
 
 .. code-block:: xml
 
@@ -78,13 +77,14 @@ Copy the userdefined file:
 
 Make batch
 ============
-Try ``cp /data/keeling/a/mailes2/CESM/cesm1_2_1/scripts/ccsm_utils/Machines/mkbatch.keeling .``
+In the file ``CESM/cesm1_2_1/scripts/ccsm_utils/Machines/mkbatch.keeling``
+Copy and paste any of the missing chunks of code below:
 
-Check the time limit is set to one day:
+1. Check the time limit is set to one day:
 
 ``set tlimit = "1-00:00:00"``
 
-Under the first USERDEFINED section, it should look like below.
+2. Under the first USERDEFINED section, it should look like below.
 
 .. code-block:: xml
 
@@ -103,7 +103,7 @@ Under the first USERDEFINED section, it should look like below.
 
 Change ``--mail-user`` to your own email.
 
-The according PBS lines should look like the following:
+3. The according PBS lines should look like the following:
 
 .. code-block:: xml
 
@@ -112,7 +112,7 @@ The according PBS lines should look like the following:
    ##PBS -l nodes=${nodes}:ppn=${taskpernode}
    ##PBS -l walltime=${tlimit}
 
-And the BSUB lines:
+4. And the BSUB lines:
 
 .. code-block:: xml
 
@@ -121,14 +121,14 @@ And the BSUB lines:
    ...
    ###BSUB -W ${tlimit}
 
-Under the second USERDEFINED section, the MPI exec and run lines should look like this:
+5. Under the second USERDEFINED section, the MPI exec and run lines should look like this:
 
 .. code-block:: console 
 
    #mpiexec -n ${maxtasks} \$EXEROOT/cesm.exe >&! cesm.log.\$LID
    mpirun -np ${maxtasks} \$EXEROOT/cesm.exe >&! cesm.log.\$LID
 
-Make sure env_mach_specific.keeling and mkbatch.keeling are executable!
+Make sure env_mach_specific.keeling and mkbatch.keeling are executable! (ll)
 
 Running a case
 ===============
