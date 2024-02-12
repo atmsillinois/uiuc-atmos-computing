@@ -12,7 +12,7 @@ Machine Configuration
 Here, specifications, compilers, and other configurations for various machines at places
 like NCAR are located. We will need to replicate these conditions for keeling.
 
-Try ``cp /data/keeling/a/mailes2/CESM/cesm1_2_1/scripts/ccsm_utils/Machines/config_machines.xml .`` and edit $HOME to your home directory in the following entries:
+Navigate to the file ``/CESM/cesm1_2_1/scripts/ccsm_utils/Machines/config_machines.xml`` and edit $HOME to your home directory in the following entries:
 
 * RUNDIR
 * EXEROOT
@@ -52,12 +52,12 @@ Format should look like below.
 In place of each $HOME variable, put your home directory. Any path with $CASE in it will
 automatically create the desired directories for each case when called. You may need to
 create the Baseline and long term archiving (DOUT_L_MSROOT) directories yourself
-though.
+though. Be sure to check that all the file paths match the directories in your system.
 
 Machine compilers
 =================
 In the file ``CESM/cesm1_2_1/scripts/ccsm_utils/Machines/config_compilers.xml``,
-Paste the code block and check that the keeling entry (below the intel entry) looks like below.
+paste the code block and check that the keeling entry (below the intel entry) looks like below.
 
 .. code-block:: xml
 
@@ -78,6 +78,7 @@ Copy the userdefined file:
 Make batch
 ============
 In the file ``CESM/cesm1_2_1/scripts/ccsm_utils/Machines/mkbatch.keeling``
+
 Copy and paste any of the missing chunks of code below:
 
 1. Check the time limit is set to one day:
