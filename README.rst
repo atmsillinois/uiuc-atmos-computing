@@ -1,4 +1,4 @@
-ATMS Computing Documentation
+CliMAS Computing Documentation
 =======================================
 
 .. image:: https://readthedocs.org/projects/computing-docs/badge/?version=latest
@@ -6,7 +6,8 @@ ATMS Computing Documentation
     :alt: Documentation Status   
 
 This GitHub repository contains documentation for computing
-within the Department of Atmospheric Sciences at the University of Illinois.
+within the Department of Climate, Meteorology & Atmospheric Sciences at the University of Illinois
+Urbana-Champaign.
 
 The latest version of documentation may be viewed at https://computing-docs.readthedocs.io/en/latest/
 
