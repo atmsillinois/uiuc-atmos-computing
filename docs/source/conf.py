@@ -33,8 +33,9 @@ templates_path = ['_templates']
 # -- Options for HTML output
 
 html_theme = 'sphinx_rtd_theme'
-html_logo =  'ATMS_UIUC.jpg'
-#html_logo = 'ATMS_Illinois.png'
+#html_logo =  'ATMS_UIUC.jpg'
+#html_logo =  'CliMAS_Color.png'
+html_logo = 'Profile.png'
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 todo_include_todos = True
