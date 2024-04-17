@@ -140,7 +140,7 @@ From the same directory, edit the file ``config_batch.xml``
 
 Add the following lines:
 
-.. code-block:: console
+.. code-block:: xml
 
  <batch_system type="slurm">
     <batch_query per_job_arg="-j">squeue</batch_query>
