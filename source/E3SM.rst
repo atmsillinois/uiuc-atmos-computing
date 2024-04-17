@@ -71,7 +71,7 @@ Add the following lines:
   
 After saving the file, you will either need to relogin to Keeling, or use the commands
 ``module purge``
-``.~/.modules7``
+``source .modules7``
 to load the modules correctly.
 
 Note that these modules can fail CESM builds - you will have to come back and delete those lines if you need to run a CESM model.
