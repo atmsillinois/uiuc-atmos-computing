@@ -233,7 +233,7 @@ First, rename ``userdefined.cmake`` to ``keeling.cmake``, as shown below:
 
 ``cp userdefined.cmake keeling.cmake``
 
-Now, edit the ``keeling.cmake`` file. Change the contents to the coded provided below.
+Now, edit the ``keeling.cmake`` file. Change the contents to the code provided below.
 
 .. code-block:: cmake
 
