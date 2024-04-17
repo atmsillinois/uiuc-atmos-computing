@@ -86,7 +86,7 @@ Navigate to the cime_config/machines folder.
 ``cd /data/keeling/a/<NetId>/E3SM2_1/E3SM/cime_config/machines/``
 
 Add the following to the file ``config_machines.xml`` in ``/data/keeling/a/<NetID>/E3SM2_1/E3SM/cime_config/machines``
-Don’t forget to change the netID from <NetID>. You can place the code block at the end of the code. Make sure you paste this before <default_run_suffix>!!:
+Don’t forget to change the netID from <NetID>. You can paste this code block near the end of the file but make sure you paste it before <default_run_suffix>:
 
 .. code-block:: xml
 
