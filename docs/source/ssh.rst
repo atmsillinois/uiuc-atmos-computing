@@ -1,7 +1,7 @@
 Access Keeling via ssh
 ======================
 
-Keeling is the ATMS computing cluster that can be used for computing work.
+Keeling is the CliMAS computing cluster that can be used for computing work.
 When connecting off campus, the VPN must be used. Information on the CISCO
 AnyConnect Virtual Private Network (VPN) is available
 `here <https://techservices.illinois.edu/vpn-essentials/>`__.
