@@ -123,9 +123,9 @@ Don’t forget to change the netID from <NetID>. You can paste this code block n
 
 Checking the validity of ``config_machines.xml``
 ------------------------------------------------
-Run the following command from any directory, making sure to replace <NetID> with your netID:
+Run the following command from any directory:
 
-``xmllint --xinclude --noout --schema /data/keeling/a/<NetId>/E3SM2_1/E3SM/cime/CIME/data/config/xml_schemas/config_machines.xsd /data/keeling/a/<NetId>/E3SM2_1/E3SM/cime_config/machines/config_machines.xml``
+``xmllint --xinclude --noout --schema /data/keeling/a/$USER/E3SM2_1/E3SM/cime/CIME/data/config/xml_schemas/config_machines.xsd /data/keeling/a/$USER/E3SM2_1/E3SM/cime_config/machines/config_machines.xml``
 
 If it successfully ports, you should see the following message:
 
