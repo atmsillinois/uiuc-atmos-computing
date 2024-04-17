@@ -88,7 +88,7 @@ Navigate to the cime_config/machines folder.
 Add the following to the file ``config_machines.xml`` in ``/data/keeling/a/<NetID>/E3SM2_1/E3SM/cime_config/machines``
 Don’t forget to change the netID from <NetID>. You can place the code block at the end of the code. Make sure you paste this before <default_run_suffix>!!:
 
-.. code-block:: console
+.. code-block:: xml
 
   <machine MACH="keeling">
     <DESC>UIUC CentOS 7.9, os is Linux, 16 pes/node, batch system is SLURM</DESC>
