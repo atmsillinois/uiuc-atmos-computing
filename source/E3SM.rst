@@ -179,7 +179,7 @@ Add the following lines:
 
 **Important: You will find another batch system  <batch_system type="slurm" > in the middle of the config_batch.xml file. So you need to remove this block:**
 
-.. code-block:: console
+.. code-block:: xml
 
   <batch_system type="slurm" >
     <batch_query per_job_arg="-j">squeue</batch_query>
