@@ -235,7 +235,7 @@ First, rename ``userdefined.cmake`` to ``keeling.cmake``, as shown below:
 
 Now, edit the ``keeling.cmake`` file. Change the contents to the coded provided below.
 
-.. code-block:: console
+.. code-block:: cmake
 
   set(SUPPORTS_CXX "TRUE")
   if (COMP_NAME STREQUAL gptl)
