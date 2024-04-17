@@ -209,8 +209,8 @@ Add the following lines:
 
 Checking the validity of ``config_batch.xml``
 ----------------------------------------------
-Run the following command, making sure to replace <NetID> with your netID:
-``xmllint --xinclude --noout --schema /data/keeling/a/<NetId>/E3SM2_1/E3SM/cime/CIME/data/config/xml_schemas/config_batch.xsd /data/keeling/a/<NetId>/E3SM2_1/E3SM/cime_config/machines/config_batch.xml``
+Run the following command:
+``xmllint --xinclude --noout --schema /data/keeling/a/$USER/E3SM2_1/E3SM/cime/CIME/data/config/xml_schemas/config_batch.xsd /data/keeling/a/$USER/E3SM2_1/E3SM/cime_config/machines/config_batch.xml``
 
 
 If it successfully ports, you should see the following message:
