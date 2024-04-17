@@ -26,7 +26,7 @@ Click `here`_ for a guide through the setup process.
 Downloading the model
 ---------------------
 First, make sure to navigate to your E3SM folder from your home directory.
-``cd E3SM2_1/``
+``cd ~/E3SM2_1/``
 
 Use the following command to begin installing the required model files into this directory. 
 ``git clone -b maint-2.1 --recursive https://github.com/E3SM-Project/E3SM.git``
