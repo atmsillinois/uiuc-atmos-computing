@@ -7,6 +7,6 @@ Models that have been configured and installed on Keeling
    :maxdepth: 2 
 
    CESM <cesm/cesm>
-   E3SM <e3sm>
+   E3SM <E3SM>
    PartMC <partmc>
    WRF <wrf>
