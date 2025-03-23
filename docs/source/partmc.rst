@@ -370,3 +370,119 @@ SUNDIALS is a SUite of Nonlinear and DIfferential/ALgebraic equation Solvers.
       make test
       make install
 
+.. _TChem:
+
+Installing TChem
+----------------
+
+#. Acquire the code from Github:
+
+   .. code-block:: console
+
+      git clone --recursive https://github.com/PCLAeroParams/TChem-atm.git
+
+#. Launch an interactive session to a GPU node
+
+   .. code-block:: console
+
+      qlogin -p l40s -n 96 --gres=gpu:L40S:1 --mem=250000
+
+#. Load the required modules:
+
+   .. code-block:: console
+
+      module purge
+      module load L40S
+
+#. Create a build directory and change into it:
+
+   .. code-block:: console
+
+      cd TChem-atm/
+      mkdir build
+      cd build
+
+#. Copy the build scripts from the TChem-atm repository
+
+   .. code-block:: console
+
+      cp ../scripts/tpl_build.sh
+      cp ../scripts/build_script.sh
+   
+#. Edit the third party build script ``tpl_build.sh`` to include the
+   path of the TChem-atm repository:
+
+   .. code-block:: console
+
+      TCHEM_REPOSITORY_PATH=<path to TChem-atm directory>
+
+   Disable building OpenBLAS by setting:
+
+   .. code-block:: console
+
+      INSTALL_OPENBLAS="OFF"
+
+#. Run the third party build script:
+
+   .. code-block:: console
+
+      ./tpl_build.sh >& tpl_host.log
+
+#. Edit the third party build script to enable CUDA:
+
+   .. code-block:: console
+
+      CUDA="ON"
+
+#. Run ``tpl_build.sh`` to build the CUDA version of the libraries:
+
+   .. code-block:: console
+
+      ./tpl_build.sh >& tpl_gpu.log
+
+#. Edit the TChem build script ``build_script.sh``:
+
+   .. code-block:: console
+
+      TCHEM_REPOSITORY_PATH=<path to TChem-atm directory>
+      BUILD_PATH=$(pwd)
+
+   If you want to build the Release version, change ``BUILD_TYPE`` from DEBUG to RELEASE:
+
+   .. code-block:: console
+
+      BUILD_TYPE=RELEASE
+
+#. Run the TChem build script:
+
+   .. code-block:: console
+
+      ./build_script.sh >& build_host.log
+
+#. Change the build script to build the CUDA versions:
+
+   .. code-block:: console
+
+      CUDA="ON"
+
+#. Run the TChem build script:
+
+   .. code-block:: console
+
+      ./build_script.sh >& build_gpu.log
+
+#. Run the tests, depending on the build type you set. 
+
+   ``DEBUG`` version:
+
+   .. code-block:: console
+
+      ctest --test-dir HOST/DEBUG/build/tchem_atm/
+      ctest --test-dir CUDA/DEBUG/build/tchem_atm/
+
+   ``RELEASE`` version:
+
+   .. code-block:: console
+
+      ctest --test-dir HOST/RELEASE/build/tchem_atm/
+      ctest --test-dir CUDA/RELEASE/build/tchem_atm/
