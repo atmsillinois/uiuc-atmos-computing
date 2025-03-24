@@ -1,125 +1,169 @@
+=========================================
 Weather Research and Forecast (WRF) model
 =========================================
 
-This document is intended to serve as a reference for new users in building and running the WRF and WPS on Keeling. This assumes Versions 3.9.1 and greater.
+This document is intended to serve as a reference for new users in building
+and running the WRF and WPS on Keeling. This guide assumes WRF version 4.0.0 and greater.
 
-WRF Versions 4.0 and greater are available on GitHub `here <https://github.com/wrf-model/WRF>`__
+Acquiring WRF source code
+=========================
 
-Older versions are available for download from `here <https://www2.mmm.ucar.edu/wrf/users/download/get_source.html>`__
+WRF Versions 4.0 and greater are available at the `WRF GitHub repository <https://github.com/wrf-model/WRF>`__
 
-It is recommended that you fork the WRF repository through GitHub and then acquire the code by:
+To acquire the WRF model there are various options:
 
-.. code-block:: console
+* You can clone the WRF repository directly by:
 
-    git clone git@github.com:<your github username>/WRF.git
+  .. code-block:: console
 
-or acquire a specific version from the Release page for wrf-model on GitHub
-`here <https://github.com/wrf-model/WRF/releases>`__. For example, to acquire a
-tar file of version 4.4.2:
+      git clone https://github.com/wrf-model/WRF.git
 
-.. code-block:: console
+* Create your own fork the WRF repository through GitHub (or by `clicking here <https://github.com/wrf-model/WRF/fork>`__) and then acquire the code by:
 
-    wget https://github.com/wrf-model/WRF/releases/download/v4.4.2/v4.4.2.tar.gz
+  .. code-block:: console
 
-and you can unpack by:
+    git clone https://github.com/<your GitHub username>/WRF.git
 
-.. code-block:: console
+* Acquire a specific version as a tarball from the `WRF GitHub Release page <https://github.com/wrf-model/WRF/releases>`__
 
-    tar -xvzf v4.4.2.tar.gz 
+  .. note::
+    For example, to acquire a tar file of version 4.4.2:
 
-Building WRF with GNU compilers
--------------------------------
+    .. code-block:: console
 
-Configuring environment
-^^^^^^^^^^^^^^^^^^^^^^^
+        wget https://github.com/wrf-model/WRF/releases/download/v4.4.2/v4.4.2.tar.gz
 
-Load the following modules:
+    and you can unpack by:
 
-.. code-block:: console
+    .. code-block:: console
 
-    module load gnu/gnu-9.3.0
-    module load gnu/netcdf4-4.7.4-gnu-9.3.0
-    module load gnu/openmpi-3.1.6-gnu-9.3.0
+        tar -xvzf v4.4.2.tar.gz
 
-Set the path to NetCDF:
+* Older versions (before v4.0) are available for download from the `WRF Users Page <https://www2.mmm.ucar.edu/wrf/users/download/get_source.html>`__
 
-.. code-block:: console
+Building WRF
+============
 
-    export NETCDF=`nc-config --prefix`
+Setting up the build environment
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you are interested in compiling WRF with chemistry options, WRF-Chem can be
-enabled on by:
+#. There are two compiler options on Keeling to compile WRF: GNU and Intel.
 
-.. code-block:: console
+   * If building with GNU compilers, load the following modules:
 
-    export WRF_CHEM=1
+    .. code-block:: console
+
+       module load mpi/openmpi-x86_64
+
+   * If building with Intel compilers, load the following modules:
+
+    .. code-block:: console
+
+       module load intel/intel-oneapi
+       module load intel/intel-mpi
+       module load intel/netcdf4-4.9.2-intel-oneapi
+
+#. Set the path to NetCDF:
+
+   .. code-block:: console
+
+      export NETCDF=`nc-config --prefix`
+
+#. If you are interested in compiling WRF with chemistry options, WRF-Chem can be
+   enabled on by:
+
+   .. code-block:: console
+
+      export WRF_CHEM=1
 
 Configuring and compiling WRF
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To configure WRF:
+#. To configure WRF, run the configure process by:
 
-.. code-block:: console
-  
+   .. code-block:: console
+
     ./configure
 
-Select the option that is distributed memory (DM) with GNU (option 34 as of 2/6/2023)
+   For GNU compilers, select the ``GNU (gfortran/gcc)`` option that is distributed memory (DM) (option ``[34]``)
 
-Select 1 for nesting.
+   For Intel compileres, select the option that says ``INTEL (ifx/icx)`` (option ``[78]`` as of version 4.6.1)
 
-Upon completion of the configure process a file `configure.wrf` will be generated
-that contains all the settings for building WRF. This is the file that one
-may be required to modify in event of a problem or to modify compiler options.
+   .. note::
 
-To compile the real model and send the output to a log file:
+     For older version of WRF, you may have to select ``INTEL (ifort/icc)`` option and edit the ``configure.wrf``
+     file to change the compiler to ifx/icx from ifort/icc.
+
+#. Unless you require moving nesting, select ``[1]`` for default nesting.
+
+#. Upon completion of the configure process a file ``configure.wrf`` will be generated
+   that contains all the settings for building WRF. This is the file that one may be
+   required to modify in event of a problem or to further modify compiler options/flags.
+
+#. To compile WRF to do a real case and send the output to a log file, run the following:
 
 .. code-block:: console
 
-    ./compile em_real >& compile_WRF_GNU.log
+    ./compile em_real >& compile_WRF.log
 
-WRF also has various idealized cases. These cases are found in the `test` directory and
-all available cases can be seen by
+.. note::
 
-.. code-block:: console
+   WRF also has various idealized cases. These cases are found in the ``test`` directory and
+   all available cases can be seen the following command:
+
+   .. code-block:: console
 
     ./compile -h
 
-with further information regarding each case found in the README files within each case.
-As an example, if you wanted to compile the LES scenario found in `test/em_les`
+   with further information regarding each case found in the README files within each case directory
+   within the ``test`` directory. As an example, if you wanted to compile the LES scenario found in ``test/em_les``
 
-.. code-block:: console
+   .. code-block:: console
 
-    ./compile em_les >& compile_WRF_les_GNU.log
+     ./compile em_les >& compile_WRF_les.log
 
 Building WRF Pre-Processing System (WPS)
-----------------------------------------
+========================================
 
-WPS is available `here <https://github.com/wrf-model/WPS>`_.
+The WRF Pre-Processing System (WPS) is a collection programs that provides data used as
+input to the real.exe program. WPS is available on `GitHub <https://github.com/wrf-model/WPS>`_.
 
-To configure:
+#. Change to the directory where your WRF directory can be found. WPS will need a compiled version of WRF to compile
+   and will be expecting it in this specific location (``../`` relative to the WPS directory).
+   If you do not wish to do this, you can set the ``WRF_DIR`` environment variable to the
+   location of the WRF directory.
 
-.. code-block:: console
+#. Clone WPS repository:
+
+   .. code-block:: console
+
+      git clone https://github.com/wrf-model/WPS.git
+
+#. Checkout the major version that matches your version of WRF.
+   For example, if you have compield WRF v4.6.2, checkout the v4.6 branch:
+
+   .. code-block:: console
+
+      git checkout -b v4.6 v4.6
+
+#. To configure:
+
+   .. code-block:: console
 
     ./configure
 
-Select option YY.
+   Select the option that matches your WRF compiler choice: 
+   option ``[1]`` if you used GNU compilers or ``[17]`` if you used Intel.
 
-Then to compile:
+#. To compile WPS:
 
-.. code-block:: console
+   .. code-block:: console
 
     ./compile >& compile_WPS.log
 
-Running WPS
------------
+#. Verify that the directory now contains the following executables:
 
-Main programs: geogrid.exe, ungrib.exe, metgrid.exe
+   * ``geogrid.exe``: creates the geography data
+   * ``ungrib.exe``:  decodes the data using tables and creates an intermediate format
+   * ``metgrid.exe``: ingests the data and interpolates the fields to the model domain
 
-Run `geogrid.exe` to create the geography data.
-
-`ungrib.exe` decodes the data using tables and creates an intermediate format
-
-`metgrid.exe` ingests the data and interpolates the fields to the model domain
-
-Running WRF
------------
