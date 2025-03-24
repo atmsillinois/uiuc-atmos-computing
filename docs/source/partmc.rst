@@ -19,7 +19,7 @@ Installing PartMC
 
    * Intel compilers:
 
-      .. code-block:: console
+   .. code-block:: console
 
        module load intel/intel-oneapi
        module load intel/netcdf4-4.9.2-intel-oneapi
@@ -28,7 +28,7 @@ Installing PartMC
 
    * GNU compilers:
 
-     .. code-block:: console
+   .. code-block:: console
 
        export FC=gfortran
        export CC=gcc
@@ -54,19 +54,22 @@ Installing PartMC
 
 #. Configure the environment variables for the optional libraries.
 
-   * If you compiled MOSAIC (see instructions on :ref:`MOSAIC`), set the ``MOSAIC_HOME`` environmental variable as:
+   * If you compiled MOSAIC (see instructions on :ref:`MOSAIC`),
+     set the ``MOSAIC_HOME`` environmental variable as:
 
      .. code-block:: console
 
        export MOSAIC_HOME=<where you installed it>
 
-   * If you compiled CAMP (see instructions on :ref:`CAMP`), set the ``CAMP_HOME`` environmental variable as:
+   * If you compiled CAMP (see instructions on :ref:`CAMP`),
+     set the ``CAMP_HOME`` environmental variable as:
 
      .. code-block:: console
 
        export CAMP_HOME=<where you installed it>
 
-   * If you compiled SUNDIALS (see instructions on :ref:`SUNDIALS`), set the ``SUNDIALS_HOME`` environmental variable  as:
+   * If you compiled SUNDIALS (see instructions on :ref:`SUNDIALS`),
+     set the ``SUNDIALS_HOME`` environmental variable  as:
 
      .. code-block:: console
 
@@ -91,7 +94,8 @@ Installing PartMC
 
        cd build
 
-#. PartMC can be easily configured using the graphical interface supplied by ccmake, which can be called by:
+#. PartMC can be easily configured using the graphical interface supplied by ccmake,
+   which can be called by:
 
    .. code-block:: console
 
@@ -140,14 +144,14 @@ Installing chemistry via MOSAIC
 
    * For GNU:
 
-       .. code-block:: console
+     .. code-block:: console
 
          FC = gfortran
          FFLAGS = -g -Idatamodules -Jdatamodules -fallow-argument-mismatch
 
    * For Intel:
 
-      .. code-block:: console
+     .. code-block:: console
 
          FC = ifx
          FFLAGS = -Idatamodules -module datamodules
@@ -266,7 +270,7 @@ Building CVODE
 
       tar -zxvf cvode-3.4-alpha.tar.gz
 
-#. Change into the `cvode-3.4-alpha` directory and create a build directory and change into it:
+#. Change into the ``cvode-3.4-alpha`` directory and create a build directory and change into it:
 
    .. code-block:: console
 
@@ -311,10 +315,12 @@ Building CAMP
 
       ccmake ..
 
-   Inside ccmake press ``[c]`` to configure, edit the values as needed, press ``[c]`` again, then ``[g]`` to generate.
+   Inside ccmake press ``[c]`` to configure, edit the values as needed,
+   press ``[c]`` again, then ``[g]`` to generate.
    Optional libraries can be activated by setting the respective ``ENABLE`` variable to ON.
 
-#. Compile CAMP and test it as follows. Some tests may fail due to bad random initial conditions, so re-run the tests a few times to see if failures persist.
+#. Compile CAMP and test it as follows. Some tests may fail due to bad random initial
+   conditions, so re-run the tests a few times to see if failures persist.
 
    .. code-block:: console
 
@@ -408,7 +414,7 @@ Installing TChem
 
       cp ../scripts/tpl_build.sh
       cp ../scripts/build_script.sh
-   
+
 #. Edit the third party build script ``tpl_build.sh`` to include the
    path of the TChem-atm repository:
 
@@ -471,7 +477,7 @@ Installing TChem
 
       ./build_script.sh >& build_gpu.log
 
-#. Run the tests, depending on the build type you set. 
+#. Run the tests, depending on the build type you set.
 
    ``DEBUG`` version:
 
@@ -486,3 +492,4 @@ Installing TChem
 
       ctest --test-dir HOST/RELEASE/build/tchem_atm/
       ctest --test-dir CUDA/RELEASE/build/tchem_atm/
+

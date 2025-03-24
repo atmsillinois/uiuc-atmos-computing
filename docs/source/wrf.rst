@@ -2,7 +2,8 @@
 Weather Research and Forecast (WRF) model
 =========================================
 
-This document is intended to serve as a reference for new users in building and running the WRF and WPS on Keeling. This guide assumes WRF version 4.0.0 and greater.
+This document is intended to serve as a reference for new users in building
+and running the WRF and WPS on Keeling. This guide assumes WRF version 4.0.0 and greater.
 
 Acquiring WRF source code
 =========================
@@ -36,7 +37,7 @@ To acquire the WRF model there are various options:
 
     .. code-block:: console
 
-        tar -xvzf v4.4.2.tar.gz 
+        tar -xvzf v4.4.2.tar.gz
 
 * Older versions (before v4.0) are available for download from the `WRF Users Page <https://www2.mmm.ucar.edu/wrf/users/download/get_source.html>`__
 
@@ -52,7 +53,7 @@ Setting up the build environment
 
     .. code-block:: console
 
-       module load mpi/openmpi-x86_64 
+       module load mpi/openmpi-x86_64
 
    * If building with Intel compilers, load the following modules:
 
@@ -81,7 +82,7 @@ Configuring and compiling WRF
 #. To configure WRF, run the configure process by:
 
    .. code-block:: console
-  
+
     ./configure
 
    For GNU compilers, select the ``GNU (gfortran/gcc)`` option that is distributed memory (DM) (option ``[34]``)
@@ -96,7 +97,8 @@ Configuring and compiling WRF
 #. Unless you require moving nesting, select ``[1]`` for default nesting.
 
 #. Upon completion of the configure process a file ``configure.wrf`` will be generated
-   that contains all the settings for building WRF. This is the file that one may be required to modify in event of a problem or to further modify compiler options/flags.
+   that contains all the settings for building WRF. This is the file that one may be
+   required to modify in event of a problem or to further modify compiler options/flags.
 
 #. To compile WRF to do a real case and send the output to a log file, run the following:
 
@@ -113,7 +115,7 @@ Configuring and compiling WRF
 
     ./compile -h
 
-   with further information regarding each case found in the README files within each case directory 
+   with further information regarding each case found in the README files within each case directory
    within the ``test`` directory. As an example, if you wanted to compile the LES scenario found in ``test/em_les``
 
    .. code-block:: console
@@ -128,7 +130,8 @@ input to the real.exe program. WPS is available on `GitHub <https://github.com/w
 
 #. Change to the directory where your WRF directory can be found. WPS will need a compiled version of WRF to compile
    and will be expecting it in this specific location (``../`` relative to the WPS directory).
-   If you do not wish to do this, you can set the ``WRF_DIR`` environment variable to the location of the WRF directory.
+   If you do not wish to do this, you can set the ``WRF_DIR`` environment variable to the
+   location of the WRF directory.
 
 #. Clone WPS repository:
 
@@ -136,7 +139,8 @@ input to the real.exe program. WPS is available on `GitHub <https://github.com/w
 
       git clone https://github.com/wrf-model/WPS.git
 
-#. Checkout the major version that matches your version of WRF. For example, if you have compield WRF v4.6.2, checkout the v4.6 branch:
+#. Checkout the major version that matches your version of WRF.
+   For example, if you have compield WRF v4.6.2, checkout the v4.6 branch:
 
    .. code-block:: console
 
@@ -148,8 +152,9 @@ input to the real.exe program. WPS is available on `GitHub <https://github.com/w
 
     ./configure
 
-   Select the option that matches your WRF compiler choice: option ``[1]`` if you used GNU compilers or ``[17]`` if you used Intel.
-   
+   Select the option that matches your WRF compiler choice: 
+   option ``[1]`` if you used GNU compilers or ``[17]`` if you used Intel.
+
 #. To compile WPS:
 
    .. code-block:: console
@@ -161,3 +166,4 @@ input to the real.exe program. WPS is available on `GitHub <https://github.com/w
    * ``geogrid.exe``: creates the geography data
    * ``ungrib.exe``:  decodes the data using tables and creates an intermediate format
    * ``metgrid.exe``: ingests the data and interpolates the fields to the model domain
+
