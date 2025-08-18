@@ -25,6 +25,24 @@ And the HTML code can then be produced by:
 
 with the result being viewable by accessing ``build/html/index.html``.
 
+Steps for producing a conda environment for building locally
+------------------------------------------------------------
+
+You can build a conda enviroment (named ``computing_docs``) using the provided
+environment file (``env_computing_docs.yaml``) in this repository:
+
+``conda env create -f env_computing_docs.yaml``
+
+Activate the enviromnent:
+
+``conda activate computing_docs``
+
+If the e environment already exists but requires updating, you can update
+by running:
+
+``conda env update -f env_computing_docs.yaml``
+
+
 Recommended workflow for contributing to this documentation project
 -------------------------------------------------------------------
 
