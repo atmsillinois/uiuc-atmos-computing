@@ -190,10 +190,12 @@ For Intel:
     #  multiple processors, distributed memory (MPI), Intel compiler 
     #      (eg, NCAR's yellowstone/cheyenne)
     FC   = mpiifx
-    OPTS = -O3 -xHost -assume byterecl -fp-model precise -ftz -no-fma
+    OPTS = -O3 -assume byterecl -fp-model precise -ftz -no-fma
     CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
     DM   = -DMPI
 
+Note that ``-Xhost`` has been removed as an OPT as there are possibly some architecture
+compatitbility issues with compiling on login node and running on compute nodes.
 
 For the NetCDF section, edit the following so that the library is found:
 
