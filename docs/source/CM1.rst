@@ -11,6 +11,11 @@ is widely used in the atmospheric science community.
 Compiling CM1 on Keeling
 ========================
 
+These instructions assume you are using using the newest versions of CM1.
+For older versions, you may need to edit the ``Makefile`` to set the correct
+paths for NetCDF and for the correct architecture options you want.
+However, those paths and settings should be similar to the instructions below.
+
 #. Clone the CM1 repository:
 
     .. code-block:: console
@@ -68,6 +73,32 @@ Compiling CM1 on Keeling
 
       module load mpi/openmpi-x86_64
 
+    For using Intel compilers and MPI, you can load the following modules:
+
+    .. code-block:: console
+
+      module load intel/intel-oneapi
+      module load intel/intel-mpi
+      module load intel/netcdf4-4.9.2-intel-oneapi
+
+#. To set the compiler, you can set the ``FC`` environment variable before running the ``make`` command:
+
+    * For GNU:
+
+     .. code-block:: console
+
+      export FC=gfortran
+
+    * For Intel:
+
+     .. code-block:: console
+
+      export FC=ifx
+
+     Two additional changes are required to the ``Makefile``, which are:
+        - Change the line which sets the compilers flags for ``ifort`` to be for ``ifx`` so that flags are set correctly for the Intel Fortran compiler.
+        - Change the line which sets the compiler to ``mpif90`` to be ``mpiifx`` so that the correct MPI is called.
+
 #. Build the model and enable MPI by running the Makefile:
 
     .. code-block:: console
@@ -84,18 +115,26 @@ Compiling CM1 on Keeling
    (albeit it may be less efficient in terms of performance). To specify where the NetCDF library is located,
    you can set the ``NETCDFBASE`` environment variable before running the ``make`` command:
 
-    .. code-block:: console
+    * For GNU:
+
+     .. code-block:: console
     
       export NETCDFBASE=/usr
 
-   Additionally, you must edit the ``Makefile`` to set the correct paths for NetCDF include files:
+     Additionally for GNU, you must edit the ``Makefile`` to set the correct paths for NetCDF include files:
 
-    .. code-block:: makefile
+      .. code-block:: makefile
 
-       OUTPUTINC   += -I$(NETCDFBASE)/include
-       OUTPUTINC   += -I/usr/lib64/gfortran/modules
+        OUTPUTINC   += -I$(NETCDFBASE)/include
+        OUTPUTINC   += -I/usr/lib64/gfortran/modules
 
-   Note that we are adding an extra include path for the Fortran modules, which is necessary for the NetCDF library to work correctly with Fortran.
+     Note that we are adding an extra include path for the Fortran modules, which is necessary for the NetCDF library to work correctly with Fortran.
+
+    * For Intel:
+
+     .. code-block:: console
+    
+       export NETCDFBASE=/sw/netcdf-4.9.2-intel-oneapi/
 
 #. After building, the executable will be located in the ``run`` directory:
 
@@ -126,3 +165,59 @@ Running a testcase on Keeling
 Example script for running CM1
 ==============================
 
+Previous versions
+=================
+
+Versions predating vXX.X may require the modication of the src/Makefile to 
+set the correct paths for NetCDF and architecture options.
+
+For example, you may need to set the following variables in the Makefile:
+
+For GNU:
+
+  .. code-block:: makefile
+
+    #  multiple processors, distributed memory (MPI), gnu compiler
+    FC = mpif90
+    OPTS = -ffree-form -ffree-line-length-none -O2 -finline-functions
+    CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
+    DM = -DMPI
+
+For Intel:
+
+  .. code-block:: makefile
+
+    #  multiple processors, distributed memory (MPI), Intel compiler 
+    #      (eg, NCAR's yellowstone/cheyenne)
+    FC   = mpiifx
+    OPTS = -O3 -xHost -assume byterecl -fp-model precise -ftz -no-fma
+    CPP  = cpp -C -P -traditional -Wno-invalid-pp-token -ffreestanding
+    DM   = -DMPI
+
+
+For the NetCDF section, edit the following so that the library is found:
+
+  .. code-block:: makefile
+
+    #OUTPUTINC = -I$(NETCDF)/include
+    #OUTPUTLIB = -L$(NETCDF)/lib
+    #OUTPUTOPT = -DNETCDF -DNCFPLUS
+    #LINKOPTS  = -lnetcdf -lnetcdff 
+
+For GNU:
+
+  .. code-block:: makefile
+
+    OUTPUTINC = -I/usr/lib64/gfortran/modules
+    OUTPUTLIB = -L/usr/lib64
+    OUTPUTOPT = -DNETCDF -DNCFPLUS
+    LINKOPTS  = -lnetcdf -lnetcdff
+
+For Intel:
+
+  .. code-block:: makefile
+
+    OUTPUTINC = -I/sw/netcdf-4.9.2-intel-oneapi/include
+    OUTPUTLIB = -L/sw/netcdf-4.9.2-intel-oneapi/lib
+    OUTPUTOPT = -DNETCDF -DNCFPLUS
+    LINKOPTS  = -lnetcdf -lnetcdff
