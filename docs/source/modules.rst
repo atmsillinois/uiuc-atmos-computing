@@ -69,18 +69,22 @@ Keeling has three available compiler options:
    :header-rows: 1
 
    * - Compiler version
+     - Module
      - C
      - C++
      - Fortran
    * - gcc 11.5.0
+     - default
      - gcc
      - g++
      - gfortran
    * - intel-15.0
+     - ``module load intel/intel-15.0.3``
      - icc
      - icpc
      - ifort
    * - intel-api
+     - ``module load intel/intel-oneapi``
      - icx
      - icpx
      - ifx
@@ -95,18 +99,22 @@ For MPI:
    :header-rows: 1
 
    * - Compiler version
+     - Module
      - C
      - C++
      - Fortran
    * - gcc 11.5.0
+     - ``module load mpi/openmpi-x86_64``
      - mpicc
      - mpic++
      - mpif90
    * - intel-15.0
+     - ``module load intel/openmpi-4.1.8-intel-15.0.3``
      - mpicc
      - mpic++
      - mpif90
    * - intel-api
+     - ``module load intel/intel-mpi``
      - mpiicx
      - mpiicpx
      - mpiifx
