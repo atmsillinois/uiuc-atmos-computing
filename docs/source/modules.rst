@@ -3,7 +3,7 @@ Using Modules
 
 The user environment is controlled using the modules environment management system.
 Modules may be loaded, unloaded, or swapped either on a command line or in 
-your `$HOME/.modules7` startup file.
+your `$HOME/.modules9` startup file.
 
 To generate a list of your currently loaded software modules:
 
@@ -30,6 +30,13 @@ To see a list of modules that include a keyword to a package such as netcdf4:
 
     module keyword netcdf4
 
+To display information about a module (description, paths, environment variables) before loading it:
+
+.. code-block:: console
+
+    module show <name of module>
+
+
 To load a given module for your environment:
 
 .. code-block:: console
@@ -42,8 +49,75 @@ To unload a given module from your current environment:
 
     module unload <name of module>
 
+To swap one module for another, for example when switching compiler versions:
+
+.. code-block:: console
+
+    module swap <old module> <new module>
+
 To unload all loaded modules from your current environment:
 
 .. code-block:: console
 
     module purge
+
+Compilers
+---------
+
+Keeling has three available compiler options:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Compiler version
+     - C
+     - C++
+     - Fortran
+   * - gcc 11.5.0
+     - gcc
+     - g++
+     - gfortran
+   * - intel-15.0
+     - icc
+     - icpc
+     - ifort
+   * - intel-api
+     - icx
+     - icpx
+     - ifx
+
+Note that ``intel-api`` uses Intel's newer oneAPI LLVM-based compilers (``icx``, ``icpx``, ``ifx``),
+which differ from the classic Intel compilers (``icc``, ``icpc``, ``ifort``) used in ``intel-15.0``.
+Code that builds with one may require changes to build with the other.
+
+For MPI:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Compiler version
+     - C
+     - C++
+     - Fortran
+   * - gcc 11.5.0
+     - mpicc
+     - mpic++
+     - mpif90
+   * - intel-15.0
+     - mpicc
+     - mpic++
+     - mpif90
+   * - intel-api
+     - mpiicx
+     - mpiicpx
+     - mpiifx
+
+GPU (CUDA) Environment
+---------------
+
+The ``L40S`` module configures the GPU environment, including loading ``nvcc`` (the CUDA compiler)
+and various other CUDA toolkit utilities:
+
+.. code-block:: console
+
+    module load L40S
