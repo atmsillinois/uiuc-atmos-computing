@@ -79,12 +79,12 @@ Keeling has three available compiler options:
      - g++
      - gfortran
    * - intel-15.0
-     - ``module load intel/intel-15.0.3``
+     - ``intel/intel-15.0.3``
      - icc
      - icpc
      - ifort
    * - intel-api
-     - ``module load intel/intel-oneapi``
+     - ``intel/intel-oneapi``
      - icx
      - icpx
      - ifx
@@ -104,17 +104,17 @@ For MPI:
      - C++
      - Fortran
    * - gcc 11.5.0
-     - ``module load mpi/openmpi-x86_64``
+     - ``mpi/openmpi-x86_64``
      - mpicc
      - mpic++
      - mpif90
    * - intel-15.0
-     - ``module load intel/openmpi-4.1.8-intel-15.0.3``
+     - ``intel/openmpi-4.1.8-intel-15.0.3``
      - mpicc
      - mpic++
      - mpif90
    * - intel-api
-     - ``module load intel/intel-mpi``
+     - ``intel/intel-mpi``
      - mpiicx
      - mpiicpx
      - mpiifx
