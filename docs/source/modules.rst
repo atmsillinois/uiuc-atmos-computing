@@ -36,7 +36,6 @@ To display information about a module (description, paths, environment variables
 
     module show <name of module>
 
-
 To load a given module for your environment:
 
 .. code-block:: console
