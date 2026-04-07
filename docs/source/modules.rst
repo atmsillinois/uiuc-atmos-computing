@@ -3,7 +3,7 @@ Using Modules
 
 The user environment is controlled using the modules environment management system.
 Modules may be loaded, unloaded, or swapped either on a command line or in 
-your `$HOME/.modules9` startup file.
+your ``$HOME/.modules9`` startup file.
 
 To generate a list of your currently loaded software modules:
 
@@ -89,9 +89,11 @@ Keeling has three available compiler options:
      - icpx
      - ifx
 
-Note that ``intel-api`` uses Intel's newer oneAPI LLVM-based compilers (``icx``, ``icpx``, ``ifx``),
-which differ from the classic Intel compilers (``icc``, ``icpc``, ``ifort``) used in ``intel-15.0``.
-Code that builds with one may require changes to build with the other.
+.. note::
+
+   ``intel-api`` uses Intel's newer oneAPI LLVM-based compilers (``icx``, ``icpx``, ``ifx``),
+   which differ from the classic Intel compilers (``icc``, ``icpc``, ``ifort``) used in ``intel-15.0``.
+   Code that builds with one may require changes to build with the other.
 
 For MPI:
 
